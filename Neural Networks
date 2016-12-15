@@ -8,5 +8,6 @@ BPNN - Back Propogration(of error) Neural Network
 
 ##AWS AMI ready with software, it runs on P2 instance - https://aws.amazon.com/marketplace/pp/B01M0AXXQB#product-description
 
-
+## Nvidia CUDA package can be downloaded from 
+# https://developer.nvidia.com/cuda-downloads
 

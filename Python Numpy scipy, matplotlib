@@ -1,0 +1,60 @@
+# source - Python Numpy module -- source http://cs231n.github.io/python-numpy-tutorial/
+Numpy is the core library for scientific computing in Python. It provides a high-performance 
+multidimensional array object, and tools for working with these arrays.
+# A numpy array is a grid of values, all of the same type, and is indexed by a tuple of nonnegative integers. 
+The number of dimensions is the rank of the array; the shape of an array is a tuple of integers giving the size 
+of the array along each dimension.
+------------------------------------------------------------------------------------------------------------
+We can initialize numpy arrays from nested Python lists, and access elements using square brackets:
+here within bracket it is column
+
+
+import numpy as np
+a = np.array([1,3,5])
+print(a.shape)
+print(a[0],a[1],a[2])
+print("---------------")
+b = np.array( [  [3,5,2],[6,8,23] ] )       #see outer bracket for syntax
+print(b.shape)
+print(b[0,2],b[0,1],b[1,0],b[1,2])       # here d is read as first digit is - two columns(0,1 index) and second digit is 3 rows within column(0,1,2 index) e.g. [0,2]
+Output -- 
+(3,)
+(1, 3, 5)
+---------------
+(2, 3)
+(2, 5, 6, 23)
+------------------------------------------------------------------------------------------------------------
+# Numpy also provides many functions to create arrays:
+import numpy as np
+a = np.zeros((2, 2))  # Create an array of all zeros
+print a
+
+b = np.ones((2, 2))  # Create an array of all ones
+print b
+
+c = np.full((2, 2), 100)  # Create a constant array
+print c
+
+d = np.eye(2)  # Create a 2x2 identity matrix
+print d
+
+e = np.random.random((2, 2))  # Create an array filled with random values
+print e
+Output --
+[[ 0.  0.]
+ [ 0.  0.]]
+ 
+[[ 1.  1.]
+ [ 1.  1.]]
+ 
+[[ 100.  100.]
+ [ 100.  100.]]
+
+[[ 1.  0.]
+ [ 0.  1.]]
+
+[[ 0.53194896  0.88849381]
+ [ 0.9743469   0.40803588]]
+------------------------------------------------------------------------------------------------------------
+# Array Indexing -- 
+

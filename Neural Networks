@@ -10,5 +10,30 @@ BPNN - Back Propogration(of error) Neural Network
 Or optionally, install software based on - http://ramhiser.com/2016/01/05/installing-tensorflow-on-an-aws-ec2-instance-with-gpu-support/
 
 ## Nvidia CUDA package can be downloaded from 
+
+------------------------------------------------------ 
 # https://developer.nvidia.com/cuda-downloads
+# Source - http://iamtrask.github.io/2015/07/12/basic-python-network/
+# A neural network trained with backpropagation is attempting to use input to predict output.Backpropagation, in its simplest form, measures statistics
+like this to make a model. see below example - Consider trying to predict the output column given the three input columns. We could solve this problem
+by simply measuring statistics between the input values and the output values
+
+Input -- output 
+0 0 1 -- 0
+1 1 1 -- 1
+1 0 1 -- 1
+0 1 1 -- 0 
+
+PYTHON numpy package - adding support for large, multi-dimensional arrays and matrices,
+along with a large library of high-level mathematical functions to operate on these arrays.
+
+
+
+
+
+
+
+
+
+
 

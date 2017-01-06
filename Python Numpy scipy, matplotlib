@@ -207,6 +207,15 @@ print a  # prints "array([[11,  2,  3],
          #                [17,  8,  9],
          #                [10, 21, 12]])
 ------------------------------------------------------------------------------------------------------------
+# Boolean array indexing: Boolean array indexing lets you pick out arbitrary elements of an array. 
+Frequently this type of indexing is used to select the elements of an array that satisfy some condition.
+
+
+
+
+
+
+
 
 
 

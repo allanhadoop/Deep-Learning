@@ -27,6 +27,16 @@ Output --
 (2, 3)
 (2, 5, 6, 23)
 ------------------------------------------------------------------------------------------------------------
+# what is numpy_r ? - Translates slice objects to concatenation along the first axis.
+import numpy as np
+n = np.r_[np.array([1,2,3]), 0, 0, np.array([4,5,6])]
+print(n)
+Output -- [1 2 3 0 0 4 5 6]
+----
+np.r_[-1:1:6j, [0]*3, 5, 6]
+Output -- [-1.  -0.6 -0.2  0.2  0.6  1.   0.   0.   0.   5.   6. ]
+----Check more examples at https://docs.scipy.org/doc/numpy/reference/generated/numpy.r_.html
+------------------------------------------------------------------------------------------------------------
 # Numpy also provides many functions to create arrays:
 import numpy as np
 a = np.zeros((2, 2))  # Create an array of all zeros

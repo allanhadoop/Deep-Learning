@@ -1,0 +1,39 @@
+# source -- http://scikit-learn.org/stable/auto_examples/classification/plot_digits_classification.html#sphx-glr-auto-examples-classification-plot-digits-classification-py
+from sklearn import datasets, svm
+import numpy as np
+import matplotlib.pyplot as plt
+
+digits = datasets.load_digits()
+
+data = list(zip(digits.images,digits.target))
+data1 = list(digits.images)
+#print(data)
+
+for index, (image, label) in enumerate(data[:4]):
+    plt.subplot(2, 4, index + 1)
+    plt.axis('off')
+    plt.imshow(image, cmap=plt.cm.gray_r, interpolation='nearest')
+    plt.title('Training: %i' % label)
+
+
+# The reshaping will transform your 8x8 matrix to a
+# 1-dimensional vector, which can be used as a feature.
+n_sampl = len(digits.images)
+reshapeddata = digits.images.reshape((n_sampl, -1)) #without reshape- error ValueError: Found array with dim 3. Estimator expected <= 2.
+print(reshapeddata)  # [[  0.   0.   5. ...,   0.   0.   0.] single dimension from 8*8 matrix data of digits.images
+classifier = svm.SVC(gamma=0.001)
+
+classifier.fit(reshapeddata[:n_sampl/2], digits.target[:n_sampl/2])
+predicted = classifier.predict(reshapeddata[n_sampl/2:])
+
+data2 = list(zip(digits.images[n_sampl/2:], predicted))
+for index, (image, prediction ) in enumerate(data2[:4]):
+    plt.subplot(2, 4, index + 5)
+    plt.axis('off')
+    plt.imshow(image, cmap=plt.cm.gray_r, interpolation='nearest')
+    plt.title('Prediction: %i' % prediction)
+
+plt.show()
+Output -----Run code to see output..
+
+

@@ -12,7 +12,7 @@ Python example
 # The coefficients, the residual sum of squares and the variance score are also calculated.
 
 X - is features ( or called data attributes) 
-y - lebals ( predictions ) 
+y - labels ( predictions ) 
 
 
 

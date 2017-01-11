@@ -13,4 +13,55 @@ Python example
 
 X - is features ( or called data attributes) 
 y - labels ( predictions ) 
+------
+import matplotlib.pyplot
+import pylab
+
+x = [1,2,3,4]
+y = [3,4,8,6]
+
+#matplotlib.pyplot.scatter(x,y) -- This will just put dots on respective points of the list
+#matplotlib.pyplot.show()
+matplotlib.pyplot.plot(x,y)  #--- This will draw a solid line
+matplotlib.pyplot.show()   
+------xticks and yticks means small dashes on the x and y axis of the grid of the figure.
+------
+print(__doc__)
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn import datasets, linear_model
+
+diabetes = datasets.load_diabetes()
+
+diabetes_one_feature = diabetes.data[:, np.newaxis, 2] # Use only one feature
+
+# Split the data into training/testing sets
+diabetes_data_train = diabetes_one_feature[:-20]
+diabetes_data_test = diabetes_one_feature[-20:]
+
+# Split the targets into training/testing sets
+diabetes_target_train = diabetes.target[:-20]
+diabetes_target_test = diabetes.target[-20:]
+
+# Create linear regression object
+regr = linear_model.LinearRegression()
+
+# Train the model using the training sets
+regr.fit(diabetes_data_train, diabetes_target_train)
+
+#following three indicators are calculated by regression model which are used for internal calculations
+print('Coefficients: \n', regr.coef_)
+print("Mean squared error: %.2f"
+      % np.mean((regr.predict(diabetes_data_test) - diabetes_target_test) ** 2))
+print('Variance score: %.2f' % regr.score(diabetes_data_test, diabetes_target_test)) # Explained variance score: 1 is perfect prediction
+
+# Plot outputs
+plt.scatter(diabetes_data_test, diabetes_target_test,  color='black') #This will put dots
+plt.plot(diabetes_data_test, regr.predict(diabetes_data_test), color='blue')  #This will draw a solid line
+plt.show()
+Output ---- see at http://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#sphx-glr-auto-examples-linear-model-plot-ols-py
+---------------------------------------------------
+
+
+
 

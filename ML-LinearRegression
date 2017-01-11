@@ -4,3 +4,16 @@ Y (line/bar or overscore on Y ) is mean value of Y.
 ------------------------------------------------------------------------
 # regression - try to build relationship between variables and assess the strength of that relationship
 https://www.youtube.com/watch?v=aq8VU5KLmkY
+------------------------------------------------------------------------
+Python example
+# http://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#sphx-glr-auto-examples-linear-model-plot-ols-py
+# Code to show how linear regression attempts to draw a straight line that will best minimize the residual sum of squares between 
+# the observed responses in the dataset, and the responses predicted by the linear approximation.
+# The coefficients, the residual sum of squares and the variance score are also calculated.
+
+X - is features ( or called data attributes) 
+y - lebals ( predictions ) 
+
+
+
+

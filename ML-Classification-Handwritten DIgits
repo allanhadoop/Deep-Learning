@@ -1,6 +1,8 @@
 In general, a learning problem considers a set of n samples of data and then tries to predict properties of unknown data. 
 If each sample is more than a single number and, for instance, a multi-dimensional entry (aka multivariate data), 
 it is said to have several attributes or features.
+# source -- http://scikit-learn.org/stable/auto_examples/classification/plot_digits_classification.html#sphx-glr-auto-examples-classification-plot-digits-classification-py
+-------------
 # see source link for more details theory 
 ------- supervise learning -- 1. classification .. 2. Regression 
 # A dataset is a dictionary-like object that holds all the data and some metadata about the data. This data is stored in 
@@ -9,7 +11,6 @@ are stored in the .target member.
 ---------task is to predict, given an image, which digit it represents.We are given samples of each of the 10 possible classes 
 ---------(the digits zero through nine) on which we fit an estimator to be able to predict the classes to which unseen samples belong
 # Recognizing hand-written digits (http://scikit-learn.org/stable/auto_examples/classification/plot_digits_classification.html#sphx-glr-auto-examples-classification-plot-digits-classification-py)
-# source -- http://scikit-learn.org/stable/auto_examples/classification/plot_digits_classification.html#sphx-glr-auto-examples-classification-plot-digits-classification-py
 from sklearn import datasets, svm
 import numpy as np
 import matplotlib.pyplot as plt

@@ -1,0 +1,98 @@
+# Source - http://matplotlib.org/users/pyplot_tutorial.html
+# Each pyplot function makes some change to a figure: e.g., creates a figure, 
+# creates a plotting area in a figure, plots some lines in a plotting area, decorates the plot with labels, etc
+# axes meaning part of a figure, not axis like x or y axis
+# MATLAB, and pyplot, have the concept of the current figure and the current axes.
+------------------------------------------------------------
+import matplotlib.pyplot as plt
+plt.plot([1,2,3,4])
+plt.ylabel('this is y label')
+plt.show()
+Output at -- http://matplotlib.org/users/pyplot_tutorial.html
+------------------------------------------------------------
+import matplotlib.pyplot as plt
+plt.plot([1,2,3,4],[1,4,9,16])  #so here first [] is x axis and second [] is y axis
+plt.ylabel('this is y label')
+plt.show()
+Output -- will change to curve line -- run and see
+------------------------------------------------------------
+import matplotlib.pyplot as plt
+plt.plot([1,2,3,4], [1,4,9,16], 'ro')  #ro for red color
+plt.axis([0, 6, 0, 20])   #(xmin, xmax, ymin, ymax). axis command specifies the viewport of the axes
+plt.show()
+------------------------------------------------------------
+# mumpy arrays 
+import matplotlib.pyplot as plt
+import numpy as np
+
+t = np.arange(0.,5.,0.2)  #start/stop/interval of 200 ms.
+plt.plot(t,t,'r--',t,t**2,'bs',t,t**3,'g^')  #r-- red, bs -blue . g^ green colors
+#t is line, t**2 is square and t**3 is triangle
+plt.show()
+------------------------------------------------------------
+# controlling line properties (linewidth, dash style, antialiased, etc) / matplotlib.lines.Line2D.
+# Line properties - http://matplotlib.org/users/pyplot_tutorial.html
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(t):
+    return np.exp(-t) * np.cos(2*np.pi*t)
+
+t1 = np.arange(0.0, 5.0, 0.1)
+t2 = np.arange(0.0, 5.0, 0.02)
+
+plt.figure(1)   #figure() is optional ,by default it is created
+plt.subplot(211)  #subplot(211) equals to subplot ( 2 1 1 ) meaning numrows, numcol, figure number
+plt.plot(t1, f(t1), 'bo', t2, f(t2), 'k')
+
+plt.subplot(211)   # so if we make 212 then last 2 meaning second figure. but if we make 211 then last 1 meaning same figure as above
+plt.plot(t2, np.cos(2*np.pi*t2), 'r--')
+plt.show()
+Output ---see at http://matplotlib.org/users/pyplot_tutorial.html
+------------------------------------------------------------
+# Labeling xlable, ylabel, title, text, grid etc
+import numpy as np
+import matplotlib.pyplot as plt
+
+mu, sigma = 100, 15
+x = mu + sigma * np.random.randn(10000)
+
+# the histogram of the data
+n, bins, patches = plt.hist(x, 50, normed=1, facecolor='g', alpha=0.75)
+
+plt.xlabel('Smarts')
+plt.ylabel('Probability')
+plt.title('Histogram of IQ')
+plt.text(60, .025, r'$\mu=100,\ \sigma=15$')
+plt.axis([40, 160, 0, 0.03])
+plt.grid(True)
+plt.show()
+Output ---see at http://matplotlib.org/users/pyplot_tutorial.html
+------------------------------------------------------------
+# Annotating text -he uses of the basic text() command above place text at an arbitrary position on the Axes. 
+# A common use for text is to annotate some feature of the plot, and the annotate() method provides helper 
+# functionality to make annotations easy
+import numpy as np
+import matplotlib.pyplot as plt
+
+ax = plt.subplot(111)
+
+t = np.arange(0.0, 5.0, 0.01)
+s = np.cos(2*np.pi*t)
+line, = plt.plot(t, s, lw=2)
+
+plt.annotate('local maxoint', xy=(2, 1), xytext=(3, 1.5),
+            arrowprops=dict(facecolor='black', shrink=0.05),
+            )
+
+plt.ylim(-3,4)  #limit y axis to -2 2 dimension
+plt.show()
+Output ---see at http://matplotlib.org/users/pyplot_tutorial.html
+------------------------------------------------------------
+
+
+
+
+
+
+

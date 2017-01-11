@@ -1,4 +1,5 @@
 # Source - http://matplotlib.org/users/pyplot_tutorial.html
+## better source - https://www.labri.fr/perso/nrougier/teaching/matplotlib/
 # Each pyplot function makes some change to a figure: e.g., creates a figure, 
 # creates a plotting area in a figure, plots some lines in a plotting area, decorates the plot with labels, etc
 # axes meaning part of a figure, not axis like x or y axis

@@ -1,3 +1,9 @@
+# Source - http://www.scipy-lectures.org/intro/matplotlib/matplotlib.html
+
+
+
+
+------------------------------------------------------------
 # Source - http://matplotlib.org/users/pyplot_tutorial.html
 ## better source - https://www.labri.fr/perso/nrougier/teaching/matplotlib/
 # Each pyplot function makes some change to a figure: e.g., creates a figure, 

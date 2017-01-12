@@ -1,0 +1,17 @@
+# see word document(attached in this repo) for better understand the concept. 
+# Source - https://www.analyticsvidhya.com/blog/2014/10/support-vector-machine-simplified/
+# Source - https://www.analyticsvidhya.com/blog/2015/10/understaing-support-vector-machine-example-code/
+# Source - what is support vector machine - https://www.youtube.com/watch?v=1NxnPkZM9bc
+# Source http://scikit-learn.org/stable/modules/svm.html#classification
+# Support vector machines (SVMs) are a set of supervised learning methods used for classification, regression and outliers detection.
+# Uses a subset of training points in the decision function (called support vectors),
+ 
+
+# In Python, scikit-learn is a widely used library for implementing machine learning algorithms,
+# Tuning parameters value for machine learning algorithms effectively improves the model performance. 
+# Let’s look at the list of parameters available with SVM. Basically "kernel”, “gamma” and “C” these parameters has higher impact on model
+# For Kernel - there are 3 options - “linear”, “rbf”,”poly” and others (default value is “rbf”).  Here “rbf” and “poly” are useful for non-linear hyper-plane. L
+
+sklearn.svm.SVC(C=1.0, kernel='rbf', degree=3, gamma=0.0, coef0=0.0, shrinking=True, probability=False,tol=0.001, 
+cache_size=200, class_weight=None, verbose=False, max_iter=-1, random_state=None)
+

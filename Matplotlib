@@ -4,6 +4,10 @@
 # pyplot provides a procedural interface to the matplotlib object-oriented plotting library. 
 # It is modeled closely after Matlab. Therefore, the majority of plotting commands in pyplot have Matlab™ analogs with similar arguments. 
 ------------------------------------------------------------
+Editor help using below command.e.g.
+import matplotlib.pyplot as plt
+print(help(plt.plot))
+------------------------------------------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 X = np.linspace(-np.pi,np.pi, 256, endpoint=True)    #start, stop,num,
@@ -140,15 +144,103 @@ plt.tight_layout()
 plt.show()
 Output -- http://www.scipy-lectures.org/intro/matplotlib/auto_examples/plot_subplot-grid.html
 ------------------------------------------------------------
+# GridSpec
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
 
+plt.figure(figsize=(6, 4))
+G = gridspec.GridSpec(3, 3)    # 3,3 indicates how many rows and columns in the plot. here we have 3 rows and 3 colms.
 
+axes_1 = plt.subplot(G[0, :])   # specifiy plot poisition using row and column - 0, means from 0 index row till end and : means all
+plt.xticks(())
+plt.yticks(())
+plt.text(0.5, 0.5, 'Axes 1', ha='center', va='center', size=24, alpha=.5)
 
+axes_2 = plt.subplot(G[1, :-1])     #specifiy plot poisition using row and column - here 1, means from from 1 index row till all colms and -1 for last column minus 1
+plt.xticks(())
+plt.yticks(())
+plt.text(0.5, 0.5, 'Axes 2', ha='center', va='center', size=24, alpha=.5)
 
+axes_3 = plt.subplot(G[1:, -1]) # specifiy plot poisition using row and column so here 1: means 1 index row onwards all and last column minus 1
+plt.xticks(())
+plt.yticks(())
+plt.text(0.5, 0.5, 'Axes 3', ha='center', va='center', size=24, alpha=.5)
 
+axes_4 = plt.subplot(G[2, 0])   # play by changing number.. 
+plt.xticks(())
+plt.yticks(())
+plt.text(0.5, 0.5, 'Axes 4', ha='center', va='center', size=24, alpha=.5)
 
+axes_5 = plt.subplot(G[2, -2])
+plt.xticks(())
+plt.yticks(())
+plt.text(0.5, 0.5, 'Axes 5', ha='center', va='center', size=24, alpha=.5)
 
+plt.tight_layout()
+plt.show()
+Output ---http://www.scipy-lectures.org/intro/matplotlib/auto_examples/plot_gridspec.html
+------------------------------------------------------------
+# Axes - Axes are very similar to subplots but allow placement of plots at any location in the figure. 
+# So if we want to put a smaller plot inside a bigger one we do so with axes
+import matplotlib.pyplot as plt
+plt.axes([.1, .1, .8, .8])        # here .1 and .1 is row and column and .8 /.8 is just a size of the subplot.
+plt.xticks(())
+plt.yticks(())
+plt.text(.6, .6, 'axes([0.1, 0.1, .8, .8])', ha='center', va='center',size=20, alpha=.5)
 
+plt.axes([.2, .2, .3, .3])   # here .2 and .2 is row and column and .3 /.3 is just a size of the subplot.
+plt.xticks(())          # empty ticks , otherwise , plot will print all numbers
+plt.yticks(())          # empty ticks
+plt.text(.5, .5, 'axes([0.2, 0.2, .3, .3])', ha='center', va='center',size=16, alpha=.5) 
+plt.show()
+Output -- http://www.scipy-lectures.org/intro/matplotlib/auto_examples/plot_axes.html
+------------------------------------------------------------
+# Ticks -- Locator - All of these locators derive from the base class matplotlib.ticker.Locator. 
+import numpy as np
+import matplotlib.pyplot as plt
 
+def tickline():
+    plt.xlim(0, 10), plt.ylim(-1, 1), plt.yticks([])
+    ax = plt.gca()                      #get current axis
+    ax.spines['right'].set_color('none')
+    ax.spines['left'].set_color('none')
+    ax.spines['top'].set_color('none')
+    ax.xaxis.set_ticks_position('bottom')      # this wil place ticks on botton of the plot name
+    ax.spines['bottom'].set_position(('data',0))
+    ax.yaxis.set_ticks_position('none')
+    ax.xaxis.set_minor_locator(plt.MultipleLocator(0.1))   #this puts small upper lines at 0.1 on all plots
+    ax.plot(np.arange(10), np.zeros(10))
+    return ax
+
+locators = [
+                'plt.NullLocator()',
+                'plt.MultipleLocator(1.0)',
+                'plt.FixedLocator([0, 2, 8, 9, 10])',
+                'plt.IndexLocator(3, 1)',
+                'plt.LinearLocator(5)',
+                'plt.LogLocator(2, [1.0])',
+                'plt.AutoLocator()',
+            ]
+n_locators = len(locators)
+size = 512, 40 * n_locators    # size = (512, 280)
+dpi = 72.0
+figsize = size[0] / float(dpi), size[1] / float(dpi)
+fig = plt.figure(figsize=figsize, dpi=dpi)
+fig.patch.set_alpha(0)
+
+for i, locator in enumerate(locators):
+    plt.subplot(n_locators, 1, i + 1)
+    ax = tickline()
+    ax.xaxis.set_major_locator(eval(locator))
+    plt.text(5, 0.3, locator[3:], ha='center')
+
+plt.subplots_adjust(bottom=.01, top=.99, left=.01, right=.99)
+plt.show()
+Output -- http://www.scipy-lectures.org/intro/matplotlib/auto_examples/plot_ticks.html
+------------------------------------------------------------
+# Other types of Plots -- Regular plot, Scatter plot, Bar plot, Contour plot, Imshow, pie chart , Quiver plot, Grids, multiplot, polar axis, 
+# 3D Plots , 
+---------------------------------Regular plot -- 
 
 
 

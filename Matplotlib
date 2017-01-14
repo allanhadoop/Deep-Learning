@@ -114,6 +114,40 @@ Output -- http://www.scipy-lectures.org/intro/matplotlib/auto_examples/plot_exer
 ------------------------------------------------------------
 # Figures, Subplots, Axes and Ticks
 A “figure” in matplotlib means the whole window in the user interface. Within this figure there can be “subplots”.
+While subplot positions the plots in a regular grid, axes allows free placement within the figure. 
+When we call plot, matplotlib calls gca() to get the current axes and gca in turn calls gcf() to get the current figure. 
+If there is none it calls figure() to make one, strictly speaking, to make a subplot(111).   
+
+plt.figure(1,figsize=(8,6),dpi=60,facecolor="green",edgecolor="red",frameon=True)     # here 1 is figure number 1
+plt.close(1)   # to close figure 1
+------------------------------------------------------------
+# SUbplot -- With subplot you can arrange plots in a regular grid. You need to specify the number of rows and 
+# columns and the number of the plot
+plt.figure(figsize=(6, 4))
+plt.subplot(2, 2, 1)   # This is like array 2 means 2 horizontal row and second 2 means 2 vertical columns. 1 means first subplot within plot      
+plt.text(0.5, 0.5, 'subplot(2,2,1)', ha='center', va='center',size=24, alpha=.5)
+
+plt.subplot(2, 2, 2)   # This is like array 2 means 2 horizontal row and second 2 means 2 vertical columns. 2 means second subplot within plot 
+plt.text(0.5, 0.5, 'subplot(2,2,2)', ha='center', va='center',size=24, alpha=.5)
+
+plt.subplot(2, 2, 3)  # This is like array 2 means 2 horizontal row and second 2 means 2 vertical columns. 3 means third subplot within plot 
+plt.text(0.5, 0.5, 'subplot(2, 2, 3)', ha='center', va='center',size=24, alpha=.5)
+
+plt.subplot(2, 2, 4)  # This is like array 2 means 2 horizontal row and second 2 means 2 vertical columns. 4 means fourth subplot within plot 
+plt.text(0.5, 0.5, 'subplot(2, 2, 4)', ha='center', va='center',size=24, alpha=.5)
+
+plt.tight_layout()
+plt.show()
+Output -- http://www.scipy-lectures.org/intro/matplotlib/auto_examples/plot_subplot-grid.html
+------------------------------------------------------------
+
+
+
+
+
+
+
+
 
 
 

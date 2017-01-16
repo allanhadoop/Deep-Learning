@@ -1,0 +1,45 @@
+# https://www.youtube.com/watch?v=euhATa4wgzo
+
+Supervise Learning Problem --
+
+n-------------------------X-Features/attributes(size of house/location etc)---------------    Y(price of the house)       h(x)
+|1.
+|2.
+|3.
+|4.
+|.
+|.
+
+Where n = number of observations or samples
+x - features/ attributes
+y - observed responses 
+h(x) - response surface or hypothesis or predicted responses. This is calculated by ML algorithm. So supervise learning problem is it derives every possible valus of h(x).
+In order to get to correct h(x), we use cost function(CF). CF describes how current response surface h(x) fits the available dataset.
+Smaller CF value is better fit. machine learning goal is to construct h(x) such that CF or J is minimized. J(Yi,h(Xi))
+
+In case of regression, h(x) is interpreted as direct prediction of y itself. Number of CF are as follows (https://www.youtube.com/watch?v=iSfcRku6euQ) 
+1. Least square (deviation) cost - 
+                   n
+J(Yi,h(Xi)) = 1/n (Σ(Yi - h(Xi))^2
+                   i=1
+
+Check video link for more details(https://www.youtube.com/watch?v=iSfcRku6euQ). this difference between Yi and h(Xi) is called residual, which is sqaured.
+and 1/n is normizaing factor so it bring back to record level even if we squred the residual. some people take square root so that may also work.
+Pl. note there is a problem with outlier in this least square cost model. Outlier means some observation are not in progressive pattern. They are way off which can create bigger residual in formula and it can then mess up cost function value.
+To address above issue, we have below model.
+
+
+2. Lease absolute deviation cost --(in function , instead of square, it is not taking absolute value.This will reduce outlier issue however computationally it is not good with all numeric issues 
+
+                   n
+J(Yi,h(Xi)) = 1/n (Σ |Yi - h(Xi)| 
+                   i=1
+
+3. Huber M Cost model --- 
+
+
+
+
+
+
+

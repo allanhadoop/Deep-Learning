@@ -275,9 +275,12 @@ plt.contourf(X, Y, f(X, Y))
 plt.show()
 Output -- http://www.scipy-lectures.org/intro/matplotlib/auto_examples/plot_contour_ex.html
 ---------------------------------Pie Charts -- 
-
-
-
+n = 20
+Z = np.ones(n)
+plt.pie(Z)
+plt.show()
+Output -- http://www.scipy-lectures.org/intro/matplotlib/auto_examples/plot_pie_ex.html
+---------------------------------Grids-- 
 
 ------------------------------------------------------------
 # Source - http://matplotlib.org/users/pyplot_tutorial.html

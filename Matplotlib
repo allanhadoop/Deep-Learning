@@ -241,6 +241,29 @@ Output -- http://www.scipy-lectures.org/intro/matplotlib/auto_examples/plot_tick
 # Other types of Plots -- Regular plot, Scatter plot, Bar plot, Contour plot, Imshow, pie chart , Quiver plot, Grids, multiplot, polar axis, 
 # 3D Plots , 
 ---------------------------------Regular plot -- 
+n = 256
+X = np.linspace(-np.pi, np.pi , n, endpoint=True)
+Y = np.sin(2 * X)
+plt.plot(X, Y)
+plt.fill_between(X,0,Y)   #so 0 is an N-length array (or scalar) of the y data
+plt.show()
+Output -- http://www.scipy-lectures.org/intro/matplotlib/auto_examples/plot_plot_ex.html
+---------------------------------Scatter Plots -- 
+n = 1024
+X = np.random.normal(0, 1, n)
+Y = np.random.normal(0, 1, n)  
+plt.scatter(X, Y) #http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.scatter
+plt.show()
+Output -- http://www.scipy-lectures.org/intro/matplotlib/auto_examples/plot_scatter_ex.html
+---------------------------------Bar Plots -- 
+n = 12
+X = np.arange(n)
+Y1 = (1 - X / float(n)) * np.random.uniform(0.5,1.0,n) 
+plt.bar(X,+Y1)
+plt.show()
+Output -- http://www.scipy-lectures.org/intro/matplotlib/auto_examples/plot_bar_ex.html
+---------------------------------Contour Plots -- 
+
 
 
 

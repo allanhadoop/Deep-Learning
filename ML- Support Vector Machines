@@ -1,4 +1,4 @@
-# see word document(attached in this repo) for better understand the concept. 
+# see word document(attached in this repo called SVM.pptx) for better understand the concept. 
 # Source - https://www.analyticsvidhya.com/blog/2014/10/support-vector-machine-simplified/
 # Source - https://www.analyticsvidhya.com/blog/2015/10/understaing-support-vector-machine-example-code/
 # Source - what is support vector machine - https://www.youtube.com/watch?v=1NxnPkZM9bc
@@ -6,12 +6,60 @@
 # Support vector machines (SVMs) are a set of supervised learning methods used for classification, regression and outliers detection.
 # Uses a subset of training points in the decision function (called support vectors),
  
+(Import library, object creation, fitting model and prediction) - High Level flow of program below 
+from sklearn import svm
+# SVM object creation
+model = svm.svc(kernel='linear',c=1,gamma=1)
+# fit model
+model.fit(X,y)
+model.score(X,y)
+# prediction
+predicted = model.predict(x_test)
+------
+sklearn.svm.SVC(C=1.0, kernel='rbf', degree=3, gamma=0.0, coef0=0.0, shrinking=True, probability=False,tol=0.001, 
+cache_size=200, class_weight=None, verbose=False, max_iter=-1, random_state=None)
 
 # In Python, scikit-learn is a widely used library for implementing machine learning algorithms,
 # Tuning parameters value for machine learning algorithms effectively improves the model performance. 
 # Let’s look at the list of parameters available with SVM. Basically "kernel”, “gamma” and “C” these parameters has higher impact on model
 # For Kernel - there are 3 options - “linear”, “rbf”,”poly” and others (default value is “rbf”).  Here “rbf” and “poly” are useful for non-linear hyper-plane. L
 
-sklearn.svm.SVC(C=1.0, kernel='rbf', degree=3, gamma=0.0, coef0=0.0, shrinking=True, probability=False,tol=0.001, 
-cache_size=200, class_weight=None, verbose=False, max_iter=-1, random_state=None)
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import svm, datasets
+iris = datasets.load_iris()
+X = iris.data[ :,  :2]
+y = iris.target
+
+C = 1.0
+svc = svm.SVC(kernel='linear',C=1,gamma='auto').fit(X,y)
+print(svc)
+x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+
+h = (x_max /x_min) /100
+xx , yy = np.meshgrid(np.arange(x_min,x_max,h), np.arange(y_min,y_max,h))
+
+plt.subplot(1,1,1)
+Z = svc.predict(np.c_[xx.ravel(),yy.ravel()])
+Z = Z.reshape(xx.shape)
+plt.contourf(xx,yy,Z,cmap=plt.cm.Paired, alpha=0.4)
+plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+plt.xlabel('Sepal length')
+plt.ylabel('Sepal width')
+plt.xlim(xx.min(), xx.max())
+plt.title('SVC with linear kernel')
+
+plt.show()
+OUTPUT -- https://www.analyticsvidhya.com/blog/2015/10/understaing-support-vector-machine-example-code/
+
+
+
+
+
+
+
+
+
+
 

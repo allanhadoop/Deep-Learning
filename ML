@@ -1,3 +1,4 @@
+# ML video course - https://www.youtube.com/playlist?list=PLE6Wd9FR--EdyJ5lbFl8UuGjecvVw66F6&feature=view_all
 # ML vocabulary source - http://scikit-learn.org/stable/tutorial/basic/tutorial.html
 
 

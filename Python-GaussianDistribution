@@ -1,4 +1,6 @@
 # Source http://www.cs.ubc.ca/~nando/540-2013/lectures.html
+
+------------------------------------------------------------------------------------------------------------------------
 ##Lets look at kernel function first ( Squared Exponential Kernel  at http://www.cs.toronto.edu/~duvenaud/cookbook/index.html) 
 N = 2
 X = np.random.uniform(-5, 5, size=(N,1))    # just pick 2 random points 
@@ -33,7 +35,7 @@ final output---
 [[  1.00000000e+00   1.01893837e-68]
  [  1.01893837e-68   1.00000000e+00]]
 ------------------------------------------------------------------------------------------------------------------------
-
+# Lets look at Cholesky decomposition.
 
 
 

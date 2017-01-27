@@ -27,6 +27,17 @@ Output --
 (2, 3)
 (2, 5, 6, 23)
 ------------------------------------------------------------------------------------------------------------
+# reshape  - 
+If you no longer want the original shape, the easiest is just to assign a new shape to the array
+a.shape = (a.size//ncols, ncols) 
+You can switch the a.size//ncols by -1 to compute the proper shape automatically. 
+import numpy as np
+a= np.array([[1,2,3,5], [4,6,5,6]])
+print(np.reshape(a,(-1,4)))   # here system will give 4 columns and automatically decide number of rows on its own
+Output --   
+[[1 2 3 5]
+ [4 6 5 6]]
+------------------------------------------------------------------------------------------------------------
 # what is numpy_r ? - Translates slice objects to concatenation along the first axis.
 import numpy as np
 n = np.r_[np.array([1,2,3]), 0, 0, np.array([4,5,6])]

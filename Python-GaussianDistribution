@@ -1,0 +1,40 @@
+# Source http://www.cs.ubc.ca/~nando/540-2013/lectures.html
+##Lets look at kernel function first ( Squared Exponential Kernel  at http://www.cs.toronto.edu/~duvenaud/cookbook/index.html) 
+N = 2
+X = np.random.uniform(-5, 5, size=(N,1))    # just pick 2 random points 
+print(X)
+print('----')
+
+def kernel(a, b):
+    """ GP squared exponential kernel """
+    kernelParameter = 0.1
+    sqdist = np.sum(a**2,1).reshape(-1,1) + np.sum(b**2,1) - 2*np.dot(a, b.T)
+    print(np.sum(a**2,1).reshape(-1,1))
+    print('----')
+    print(np.sum(b**2,1))
+    print('---below dot product -')
+    print(np.dot(a, b.T))
+    print("final output---")
+    return np.exp(-.5 * (1/kernelParameter) * sqdist)
+print(kernel(X,X))
+
+-- This will give kernel value as shown below  
+[[ 0.70802151]
+ [-4.88763797]]
+----
+[[  0.50129445]
+ [ 23.88900495]]
+----
+[  0.50129445  23.88900495]
+---below dot product -
+[[  0.50129445  -3.4605528 ]
+ [ -3.4605528   23.88900495]]
+final output---
+[[  1.00000000e+00   1.01893837e-68]
+ [  1.01893837e-68   1.00000000e+00]]
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+

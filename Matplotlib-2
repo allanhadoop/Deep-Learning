@@ -1,0 +1,47 @@
+# Customizing plots with style sheets
+# Interactive navigation
+# Source - http://matplotlib.org/users/style_sheets.html
+
+# Working with text - 
+text()      - add text at an arbitrary location to the Axes; matplotlib.axes.Axes.text() in the API.
+xlabel()    - add a label to the x-axis; matplotlib.axes.Axes.set_xlabel() in the API.
+ylabel()    - add a label to the y-axis; matplotlib.axes.Axes.set_ylabel() in the API.
+title()     - add a title to the Axes; matplotlib.axes.Axes.set_title() in the API.
+figtext()   - add text at an arbitrary location to the Figure; matplotlib.figure.Figure.text() in the API.
+suptitle()  - add a title to the Figure; matplotlib.figure.Figure.suptitle() in the API.
+annotate()  - add an annotation, with optional arrow
+
+
+## All text properties are at here - http://matplotlib.org/users/text_props.html
+import numpy as np
+import matplotlib.pyplot as plt
+
+figvar = plt.figure()
+figvar.suptitle('Bold figure suptitle', fontsize=14, fontweight='bold')
+
+ax = figvar.add_subplot(111)
+figvar.subplots_adjust(top=0.85)
+
+ax.set_title('axes title')
+ax.set_xlabel('xlable')
+ax.set_ylabel('ylable')
+ax.axis([0,10,0,10])
+
+ax.text(3,8,'boxed italics text in data oords', style='italic',
+         bbox={'facecolor':'red', 'alpha':0.5 ,'pad':10})
+
+ax.text(0.95, 0.01, 'color text in axes coords', verticalalignment='bottom' , horizontalalignment='right', 
+        transform=ax.transAxes, color='green', fontsize=15)
+
+ax.text(2,6, r'An Equation : $E=MC^2$', fontsize=15)
+
+ax.plot(2,1,'o')
+
+#-------
+plt.show()
+
+
+
+
+
+

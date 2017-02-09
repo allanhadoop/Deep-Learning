@@ -1,0 +1,55 @@
+# source - http://matplotlib.org/users/annotations.html
+# Annotations 
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig = plt.figure()
+ax = fig.add_subplot(111)
+
+t = np.arange(0.0, 5.0, 0.01)
+s = np.cos(2*np.pi*t)
+
+line, = ax.plot(t, s, lw=2)
+
+ax.annotate('local max', xy=(3,1), xycoords='data', xytext=(0.8,0.95), textcoords='axes points' ,
+            arrowprops=dict(facecolor='black', shrink=0.05),
+            horizontalalignment='right', verticalalignment='top')    # there are few coords properties that can be used to show arrow bit different direction
+
+ax.set_ylim(-2,2)
+plt.show()
+-------------------------------------------------------------------------
+
+fig = plt.figure()
+ax = fig.add_subplot(111,polar=True)                    # This will plot polar circular graph
+r = np.arange(0,1,0.001)
+
+theta = 2*2*np.pi*r
+line, = ax.plot(theta, r , color='#ee8d18', lw = 2)
+
+ind= 800
+thisr, thistheta = r[ind] , theta[ind]
+ax.plot([thistheta], [thisr] ,'o')             # placing some dot at 800 poisition
+
+
+#below for text annotation
+ax.annotate('a polar annotation',
+            xy=(thistheta, thisr),
+            xytext=(0.05,0.05),
+            textcoords='figure fraction',
+            arrowprops=dict(facecolor='black', shrink=0.05),
+            ha='left',
+            va='bottom')
+
+# below for box annotation
+bbox_pros = dict(boxstyle="larrow,pad=0.3", fc="cyan", ec="b", lw=2)  #ec - edgecolor, larrow - left arrow
+ax.text(0,0, "my word", ha="center", va="center", rotation=45, size=15, bbox=bbox_pros)
+
+#below for arrow annotation
+ax.annotate("", xy=(0.2,0.2), xycoords='data', xytext=(0.8,0.8), textcoords='data',
+            arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
+ 
+
+plt.show()
+------------------------------------------------------------------
+

@@ -1,0 +1,73 @@
+# source - http://matplotlib.org/users/pyplot_tutorial.html
+
+import numpy as np
+import matplotlib.pyplot as plt
+'''--------------
+plt.plot([1,2,3,4],[4,5,6,7], 'yo')   # x points, y points , yellow circle
+plt.axis([1,5,4,8])                 # [xmin, xmax, ymin, ymax]
+plt.xlabel('x axis')
+
+t = np.arange(0.,5.,0.2)
+plt.plot(t, t, 'bo', t, t**2 , 'r^', t, t**3, 'r--')  # x points, y points , blue circle ,  x points, y points , red traingle,  x points, y points , red --
+plt.plot(t,t,'ro',linewidth=1.6)
+
+line, = plt.plot(t,t,'-')
+line.set_antialiased(True)     #antialiasied means line distortion
+
+lines = plt.plot(t,t**2 , t , t**3)
+plt.setp(lines,c='b', label='new lable' ,linewidth=1.6)   #setp - use to set up multiple properties on list of lines
+'''
+'''----------------
+def f(t):
+    return np.exp(-t) * np.cos(2*np.pi*t)
+
+t1 = np.arange(0.0,5.0,0.1)
+t2 = np.arange(0.0,5.0,0.02)
+
+plt.figure(1)                  # optional, figure 1 will be created by default
+plt.subplot(211)               # subplot(numrow, numcol, figurenum)
+plt.plot(t1, f(t1), 'bo', t2 , f(t2), 'k')
+
+plt.subplot(212)               # subplot(numrow, numcol, figurenum)
+plt.plot(t2, np.cos(2*np.pi*t2), 'r--')
+'''
+
+'''
+plt.figure(1)                # the first figure
+plt.subplot(211)             # the first subplot in the first figure
+plt.subplot(212)             # the second subplot in the first figure
+plt.figure(2)                # a second figure
+plt.figure(1)                # figure 1 current; subplot(212) still current
+plt.subplot(211)             # make subplot(211) in figure1 current
+'''
+
+'''-----------------
+np.random.seed(1968802)
+
+mu, sigma = 100, 15
+x = mu + sigma * np.random.randn(10000)
+
+n, bins, patches = plt.hist(x , 50, normed=1 , facecolor='g' , alpha=0.75)
+
+plt.xlabel('Smarts')
+plt.ylabel('Probablity')
+plt.title('Histogram for IQ')
+plt.text(60,.025, r'$\mu=100,\ \sigma=15$')            #TeX expression - text surrounded by $ sign
+plt.axis([40,160,0,0.03])
+plt.grid(True)
+'''
+
+'''-----------------
+t = np.arange(0.0,5,0.01)
+s = np.cos(2*np.pi*t)
+line, = plt.plot(t,s, lw=1.3)          #lw - linewidth
+#plt.annotate('this is peak of the curve', xy=(2,1), xytext=(4,1.5), arrowprops=dict(facecolor='black', shrink=0.05) ) # here xy (arrow tip) and xytext locations (text location) , arrowprops is attribute of arrow pointing at annotation
+plt.ylim(-2,2)
+'''
+
+# Logarithmic and other nonlinear axis
+# see - http://matplotlib.org/users/pyplot_tutorial.html
+
+#-------------
+plt.show()
+

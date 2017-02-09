@@ -47,8 +47,20 @@ ax.text(0,0, "my word", ha="center", va="center", rotation=45, size=15, bbox=bbo
 
 #below for arrow annotation
 ax.annotate("", xy=(0.2,0.2), xycoords='data', xytext=(0.8,0.8), textcoords='data',
-            arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
+            arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))   #connection style has other types. arc3 means radius=0. Other styles are angle3, angle etc...
  
+# box annotation
+from matplotlib.offsetbox import AnchoredText
+at = AnchoredText("Figure 1a", prop=dict(size=8), frameon=True, loc=2)
+at.patch.set_boxstyle("round,pad=0.,rounding_size=0.2")
+ax.add_artist(at)
+
+#circular annotation - adding artist to Drawing area
+from mpl_toolkits.axes_grid.anchored_artists import AnchoredDrawingArea
+art =  AnchoredDrawingArea(20,30,0,0,loc=1,pad=0.,frameon=True)
+p1 = Circle((10,10),10)
+art.drawing_area.add_artist(p1)
+
 
 plt.show()
 ------------------------------------------------------------------

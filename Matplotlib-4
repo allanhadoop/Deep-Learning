@@ -1,0 +1,73 @@
+# Math - Source - http://matplotlib.org/users/mathtext.html
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+plt.title(r'$\alpha \beta$')       #to print math expressions  - r' , $\ is needed
+# print(r'$\alpha_i > \2^2$') --this will not work.. math expression are only for plt.
+plt.title(r'$\sum_{i=0}^\infty x_i$')
+
+plt.show()
+
+#--------------------
+import numpy as np
+import matplotlib.pyplot as plt
+t = np.arange(0.0, 2.0, 0.01)
+s = np.sin(2*np.pi*t)
+
+plt.plot(t,s)
+plt.title(r'$\alpha_i > \beta_i$', fontsize=20)
+plt.text(1, -0.6, r'$\sum_{i=0}^\infty x_i$', fontsize=20)
+plt.text(0.6, 0.6, r'$\mathcal{A}\mathrm{sin}(2 \omega t)$',
+         fontsize=20)
+plt.xlabel('time (s)')
+plt.ylabel('volts (mV)')
+plt.show()
+
+-------------------------------------Images ------------------------------------------------------------------
+# Loading image data is supported by the Pillow library. matplotlib only supports PNG images
+For RGB and RGBA images, matplotlib supports float32 and uint8 data types
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+
+img = mpimg.imread('/Users/allangonsalves/Desktop/pytest.png')
+lum_img = img[:,:,0]              #to set different contrast
+
+imgplot = plt.imshow(lum_img, clim=(0.0,0.8))    #clim is to get extra contrast
+imgplot.set_cmap('nipy_spectral')
+#plt.colorbar()                           #this is to get colorbar
+#plt.hist(lum_img.ravel(), bins=256 , range=(0.0,1.0), fc='k', ec='k') #historgram
+
+plt.show()
+
+# Interpolation calculates what the color or value of a pixel “should” be, according to different mathematical schemes. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
